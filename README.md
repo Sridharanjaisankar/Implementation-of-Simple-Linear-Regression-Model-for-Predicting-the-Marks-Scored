@@ -37,14 +37,14 @@ print(dataset.head())
 print(dataset.tail())
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142541.png>)
+![Screenshot 2025-04-07 103056](https://github.com/user-attachments/assets/cd612d53-c0b1-47e3-86b5-cbefce4e3c05)
 
 ## Program:
 ```
 dataset.info()
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142549.png>)
+![image](https://github.com/user-attachments/assets/cec9458e-2aa6-4a67-9f30-7ee337643ee6)
 
 ## Program:
 ```
@@ -54,7 +54,7 @@ Y=dataset.iloc[:,-1].values
 print(Y)
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142602.png>)
+![image](https://github.com/user-attachments/assets/a721fd7c-946d-4bae-80dc-ad440f4d6dca)
 
 ## Program:
 ```
@@ -63,14 +63,14 @@ X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 X_train.shape
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142612.png>)
+![image](https://github.com/user-attachments/assets/85d54c93-a000-4b57-8528-b90ff06f4411)
 
 ## Program:
 ```
 X_test.shape
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142618.png>)
+![image](https://github.com/user-attachments/assets/22e896cd-722f-4dbf-82bd-2ca2b24dda89)
 
 ## Program:
 ```
@@ -79,7 +79,7 @@ reg=LinearRegression()
 reg.fit(X_train,Y_train)
 ```
 ## Output
-![alt text](<Screenshot 2025-03-08 142626.png>)
+![image](https://github.com/user-attachments/assets/8ffabef6-2e47-4d3b-a580-fa3f6f074850)
 
 ## Program:
 ```
@@ -88,7 +88,7 @@ print(Y_pred)
 print(Y_test)
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142634.png>)
+![image](https://github.com/user-attachments/assets/bd9f3d3e-a3b9-408b-a495-d8cea3bc75c3)
 
 ## Program:
 ```
@@ -100,7 +100,7 @@ plt.ylabel('Scores')
 plt.show()
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142647.png>)
+![image](https://github.com/user-attachments/assets/9e35b0de-6295-4b03-b022-f5233e0d759f)
 
 ## Program:
 ```
@@ -112,6 +112,6 @@ plt.ylabel('Scores')
 plt.show()
 ```
 ## Output:
-![alt text](<Screenshot 2025-03-08 142711.png>)
+![image](https://github.com/user-attachments/assets/34d8fc8f-6f4c-4ae2-a972-0234c39bb97a)
 ## Result:
 Thus the program to implement the simple linear regression model for predicting the marks scored is written and verified using python programming.
