@@ -8,17 +8,11 @@ To write a program to predict the marks scored by a student using the simple lin
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1.Import the standard Libraries.
-
-2.Set variables for assigning dataset values.
-
-3.Import linear regression from sklearn. 
-
-4.Assign the points for representing in the graph. 
-
-5.Predict the regression for marks by using the representation of the graph.
- 
-6.Compare the graphs and hence we obtained the linear regression for the given datas. 
+1. Import the required libraries and read the dataframe.
+2. Assign hours to X and scores to Y.
+3. Implement training set and test set of the dataframe.
+4. Plot the required graph both for test data and training data.
+5. Find the values of MSE , MAE and RMSE. 
 
 ## Program:
 ```
@@ -27,65 +21,67 @@ Program to implement the simple linear regression model for predicting the marks
 Developed by: Sridharan J 
 RegisterNumber: 212222040158
 */
-import numpy as np
 import pandas as pd
-from sklearn.metrics import mean_absolute_error,mean_squared_error
+import numpy as np
 import matplotlib.pyplot as plt
-
-dataset=pd.read_csv('student_scores.csv')
-print(dataset.head())
-print(dataset.tail())
-dataset.info()
-X=dataset.iloc[:,:-1].values
-print(X)
-Y=dataset.iloc[:,-1].values
-print(Y)
+from sklearn.metrics import mean_absolute_error,mean_squared_error
+df=pd.read_csv('student_scores.csv')
+df.head()
+df.tail()
+x=df.iloc[:,:-1].values
+x
+y=df.iloc[:,1].values
+y=df.iloc[:,1].values
+y
 from sklearn.model_selection import train_test_split
-X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
-X_train.shape
-X_test.shape
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
 from sklearn.linear_model import LinearRegression
-reg=LinearRegression()
-reg.fit(X_train,Y_train)
-Y_pred=reg.predict(X_test)
-print(Y_pred)
-print(Y_test)
-plt.scatter(X_train,Y_train,color='green')
-plt.plot(X_train,reg.predict(X_train),color='yellow')
-plt.title('Training Set(H vs S)')
-plt.xlabel('Hours')
-plt.ylabel('Scores')
+regressor=LinearRegression()
+regressor.fit(x_train,y_train)
+y_pred=regressor.predict(x_test)
+y_pred
+mse=mean_squared_error(y_test,y_pred)
+print('MSE= ',mse)
+
+mae=mean_absolute_error(y_test,y_pred)
+print("MAE =",mae)
+rmse=np.sqrt(mse)
+print("RMSE =",rmse)
+plt.scatter(x_train,y_train,color="orange")
+plt.plot(x_train,regressor.predict(x_train),color="blue")
+plt.title("Hours vs scores (Training Set)")
+plt.xlabel("Hours")
+plt.ylabel("Scores")
 plt.show()
-plt.scatter(X_test,Y_test,color='red')
-plt.plot(X_train,reg.predict(X_train),color='silver')
-plt.title('Test Set(H vs S)')
-plt.xlabel('Hours')
-plt.ylabel('Scores')
-plt.show(
+plt.scatter(x_test,y_test,color='orange')
+plt.plot(x_test,regressor.predict(x_test),color='red')
+plt.title("Hours vs Scores (Testing Set)")
+plt.xlabel("Hours")
+plt.ylabel("Scores")
 ```
 ## Output:
-![Screenshot 2025-04-07 103056](https://github.com/user-attachments/assets/cd612d53-c0b1-47e3-86b5-cbefce4e3c05)
-## Output:
-![image](https://github.com/user-attachments/assets/cec9458e-2aa6-4a67-9f30-7ee337643ee6)
+### df.head:
+![image](https://github.com/user-attachments/assets/0878145e-eff7-41f1-9626-66728b2e193d)
 
-## Output:
-![image](https://github.com/user-attachments/assets/a721fd7c-946d-4bae-80dc-ad440f4d6dca)
+### df.tail:
+![image](https://github.com/user-attachments/assets/a3d5b63f-ea96-4de4-affa-3cbc78a12761)
 
-## Output:
-![image](https://github.com/user-attachments/assets/85d54c93-a000-4b57-8528-b90ff06f4411)
+### Array value of X:
+![image](https://github.com/user-attachments/assets/77848da2-fee6-4f8b-834a-6a6bf1c318bc)
 
-## Output:
-![image](https://github.com/user-attachments/assets/22e896cd-722f-4dbf-82bd-2ca2b24dda89)
+### Array value of Y:
+![image](https://github.com/user-attachments/assets/fdf8eda9-ae8a-40c7-9b2a-4dbd3c531771)
 
-## Output
-![image](https://github.com/user-attachments/assets/8ffabef6-2e47-4d3b-a580-fa3f6f074850)
+### Values of Y prediction:
+![image](https://github.com/user-attachments/assets/fd3d4492-100e-49f7-8dd5-def40d3c8c9e)
 
-## Output:
-![image](https://github.com/user-attachments/assets/bd9f3d3e-a3b9-408b-a495-d8cea3bc75c3)
-## Output:
-![image](https://github.com/user-attachments/assets/9e35b0de-6295-4b03-b022-f5233e0d759f)
+### Value for MSE,MAE,RMSE:
+![image](https://github.com/user-attachments/assets/9f612270-ded8-4059-a9c7-b186801359e9)
 
-## Output:
-![image](https://github.com/user-attachments/assets/34d8fc8f-6f4c-4ae2-a972-0234c39bb97a)
+### Training Set Graph:
+![image](https://github.com/user-attachments/assets/a59a64f9-84fc-402e-b492-8fa24053fb08)
+
+## Test Set Graph:
+![image](https://github.com/user-attachments/assets/d5fcb706-814e-4ebd-a579-aaecbaf303e3)
 ## Result:
 Thus the program to implement the simple linear regression model for predicting the marks scored is written and verified using python programming.
